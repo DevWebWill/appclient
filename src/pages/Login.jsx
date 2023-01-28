@@ -32,19 +32,26 @@ export const Login = () => {
         .then(data => {
             console.log(data)
             localStorage.setItem("token", data.token)
-            navigate("/admin");
+            navigate("/admin")
         })
     }
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_URL_API+"/isuserauth", {
-            headers: {'x-access-token': localStorage.getItem("token")},
-        })
-        .then(res => res.json())
-        .then(data => {
-            navigate("/admin");
-            //setIsLogin(data.isLogin)
-        })
+        let token = localStorage.getItem("token")
+        if(token != null) {
+            console.log('Encontro el token')
+            fetch(process.env.REACT_APP_URL_API+"/isuserauth", {
+                headers: {'x-access-token': token},
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.isLogin) {
+                    navigate("/admin")
+                }
+                setIsLogin(data.isLogin)
+            })
+        }
+        console.log('No encontro el token')
     }, [])
 
     return (
