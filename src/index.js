@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Calendar from './components/calendar/Calendar';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import { BodyDashboard } from './components/BodyDashboard';
 
 
     
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
         element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
         errorElement: <ErrorPage />,
         children: [
+            { index: true, element: <BodyDashboard /> },
             {
                 path: "contactos",
                 element: <div>Contactos</div>,
