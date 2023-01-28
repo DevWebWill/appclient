@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-//import UserMenu from './UserMenu';
+import UserMenu from './UserMenu';
 /* import SearchModal from './header/SearchModal';
 import Notifications from './header/Notifications';
 import Help from './header/Help';
 import UserMenu from './header/UserMenu';
  */
-export function Header({ sidebarOpen, setSidebarOpen }) {
+export function Header({ sidebarOpen, setSidebarOpen, user, logout }) {
     const [searchModalOpen, setSearchModalOpen] = useState(false)
 
     return (
@@ -41,7 +41,7 @@ export function Header({ sidebarOpen, setSidebarOpen }) {
                         <Help /> */}
                         {/*  Divider */}
                         <hr className="w-px h-6 bg-slate-200 mx-3" />
-                        {/* <UserMenu user={user} /> */}
+                        <UserMenu user={user} logout={logout} />
                     </div>
                 </div>
             </div>
