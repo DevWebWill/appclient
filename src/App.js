@@ -1,10 +1,22 @@
 import './App.css';
+import { Footer } from './components/front/Footer';
+import { Hero } from './components/front/Hero';
+import { Navbar } from './components/front/Navbar';
+import Sidebar from './components/front/Sidebar';
 
 function App() {
     return (
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+        <>
+            {/* <Sidebar></Sidebar> */}
+            <Navbar />
+            <main className='flex flex-col gap-10 relative'>
+                <Hero />
+                <div className='h-screen bg-green-200'>
+
+                </div>
+                <Footer />
+            </main>
+        </>
     );
 }
 

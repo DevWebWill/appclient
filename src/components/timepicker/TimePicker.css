@@ -1,0 +1,56 @@
+.hours, .minutes, .seconds {
+    transform-origin: center;
+    stroke-linecap: round;
+}
+
+.hours {
+    stroke: rgb(54, 102, 246);
+    stroke-width: 2px; 
+    transition: transform 1s ease-in-out;
+}
+
+.circle-hour {
+    stroke-width: 16px;
+    stroke: rgb(54, 102, 246);
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: transform 1s ease-in-out;
+}
+
+.minutes {
+    stroke-width: 2px; 
+    stroke: rgb(0, 183, 255);
+    transition: transform 1s ease-in-out;
+}
+
+.circle-minute {
+    stroke-width: 16px;
+    stroke: rgb(0, 183, 255);
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: transform 1s ease-in-out;
+}
+
+.seconds {
+    stroke: white;
+}
+
+.line {
+    stroke-width: 2px;
+    stroke: white;
+    stroke-linecap: round;
+    transform-origin: center;
+}
+
+
+
+.hour-clock {
+    stroke-linecap: round;
+    transform-origin: center;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.hour-clock:hover {
+    fill: rgb(0, 76, 255);
+}

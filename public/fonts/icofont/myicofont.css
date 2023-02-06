@@ -1,0 +1,241 @@
+@font-face {
+    font-family: IcoFont;
+    font-weight: 400;
+    font-style: Regular;
+    src: url(fonts/icofont.woff2) format("woff2"),url(fonts/icofont.woff) format("woff");
+    font-display: fallback;
+}
+
+[class*=" icofont-"],[class^=icofont-] {
+    font-family: IcoFont!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    line-height: 1;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased
+}
+
+.icofont-hand-drawn-right:before {
+    content: "\ea88"
+}
+
+.icofont-rounded-right:before {
+    content: "\eaa0"
+}
+
+.icofont-ui-camera:before {
+    content: "\ec47"
+}
+
+.icofont-ui-email:before {
+    content: "\ec56"
+}
+
+.icofont-email:before {
+    content: "\ef12"
+}
+
+.icofont-user-male:before {
+    content: "\ed03"
+}
+
+.icofont-user:before {
+    content: "\ed05"
+}
+
+.icofont-search:before {
+    content: "\ed1b"
+}
+
+.icofont-facebook:before {
+    content: "\ed37"
+}
+
+.icofont-google-map:before {
+    content: "\ed42"
+}
+
+.icofont-instagram:before {
+    content: "\ed46"
+}
+
+.icofont-linkedin:before {
+    content: "\ed4d"
+}
+
+.icofont-skype:before {
+    content: "\ed67"
+}
+
+.icofont-twitter:before {
+    content: "\ed7a"
+}
+
+.icofont-whatsapp:before {
+    content: "\ed86"
+}
+
+.icofont-filter:before {
+    content: "\ef29"
+}
+
+.icofont-heart:before {
+    content: "\ef45"
+}
+
+.icofont-comment:before {
+    content: "\eeeb"
+}
+
+.icofont-ban:before {
+    content: "\eead"
+}
+
+.icofont-login:before {
+    content: "\ef7b"
+}
+
+.icofont-navigation-menu:before {
+    content: "\efa2"
+}
+
+.icofont-tags:before {
+    content: "\f005"
+}
+
+.icofont-wall:before {
+    content: "\f023"
+}
+
+.icofont-wall-clock:before {
+    content: "\f022"
+}
+
+.icofont-phone:before {
+    content: "\efbb"
+}
+
+.icofont-verification-check:before {
+    content: "\f021"
+}
+
+.icofont-star:before {
+    content: "\f000"
+}
+
+.icofont-reply:before {
+    content: "\efd4"
+}
+
+.icofont-envelope:before {
+    content: "\ef14"
+}
+
+.icofont-arrow-down:before {
+    content: "\ea5b"
+}
+
+.icofont-arrow-right:before {
+    content: "\ea5d"
+}
+
+.icofont-upload-alt:before {
+    content: "\f01c"
+}
+
+.icofont-ui-delete:before {
+    content: "\ec53"
+}
+
+.icofont-bag-alt:before {
+    content: "\eeab"
+}
+
+.icofont-ebook:before {
+    content: "\ef0f"
+}
+
+.icofont-cube:before {
+    content: "\eef7"
+}
+
+.icofont-question-circle:before {
+    content: "\efca"
+}
+
+.icofont-eye-alt:before {
+    content: "\ef21"
+}
+
+.icofont-tick-mark:before {
+    content: "\f00e"
+}
+
+.icofont-architecture-alt:before {
+    content: "\e985"
+}
+
+.icofont-architecture:before {
+    content: "\e986"
+}
+
+.icofont-handshake-deal:before {
+    content: "\e96f"
+}
+
+.icofont-dashboard:before {
+    content: "\eefa"
+}
+
+.icofont-ui-user:before {
+    content: "\ec8e"
+}
+
+.icofont-tasks:before {
+    content: "\f007"
+}
+
+.icofont-calendar:before {
+    content: "\eecd"
+}
+
+.icofont-expand:before {
+    content: "\ef1e"
+}
+
+.icofont-concrete-mixer:before {
+    content: "\e98f"
+}
+
+.icofont-close-line:before {
+    content: "\eee1"
+}
+
+.icofont-warning-alt:before {
+    content: "\f025"
+}
+
+.icofont-plus:before {
+    content: "\efc2"
+}
+
+.icofont-globe:before {
+    content: "\ef3e"
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px
+}

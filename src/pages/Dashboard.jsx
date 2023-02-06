@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
@@ -7,16 +7,17 @@ import Sidebar from "../components/Sidebar";
 export default function Dashboard() {
     const navigate = useNavigate()
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [user, setUser] = useState({})
+    //const [user, setUser] = useState({})
+    const { user } = useLoaderData();
 
     const logout = () => {
         localStorage.removeItem("token")
         navigate('/login')
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         let token = localStorage.getItem("token")
-        if(token != undefined && token != null) {
+        if(token !== undefined && token != null) {
             fetch(process.env.REACT_APP_URL_API+"/getuser", {
                 headers: {'x-access-token': token},
             })
@@ -26,15 +27,15 @@ export default function Dashboard() {
                     setUser(data.user)
                     //console.log(data.user)    
                 } else {
-                    console.log('El usuario no esta logueado')
+                    //console.log('El usuario no esta logueado')
+                    navigate('/login')
                 }
                 
             })
         } else {
-            console.log('No encontro el token')
+            //console.log('No encontro el token')
         }
-        
-    }, [])
+    }, []) */
 
     return (
         <div className="flex h-screen overflow-hidden">
@@ -43,7 +44,7 @@ export default function Dashboard() {
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} user={user} logout={logout}/>
 
-                <div>
+                <div className="p-2 h-full">
                     <Outlet />
                 </div>
             </div>

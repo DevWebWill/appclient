@@ -15,8 +15,8 @@ export default function Sidebar({sidebarOpen, setSidebarOpen}) {
     // close on click outside
     useEffect(() => {
         const clickHandler = ({ target }) => {
-        if (!sidebar.current || !trigger.current) return;
-        if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target)) return;
+            if (!sidebar.current || !trigger.current) return;
+            if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target)) return;
             setSidebarOpen(false);
         };
         document.addEventListener('click', clickHandler);
@@ -40,7 +40,7 @@ export default function Sidebar({sidebarOpen, setSidebarOpen}) {
         } else {
             document.querySelector('body').classList.remove('sidebar-expanded');
         }
-        console.log(sidebarExpanded)
+        //console.log(sidebarExpanded)
     }, [sidebarExpanded]);
 
     return (

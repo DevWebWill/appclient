@@ -4,7 +4,7 @@ import {Fade} from './pruebasTransitions/Fade';
 export const BodyDashboard = () => {
     return (
         <div>
-            <Fade></Fade>
+            {/* <Fade></Fade> */}
         </div>
     )
 }

@@ -19,7 +19,7 @@ export const Login = () => {
             password: form[1].value
         }
 
-        console.log(user)
+        //console.log(user)
 
         fetch(process.env.REACT_APP_URL_API+"/login", {
             method: "POST",
@@ -30,7 +30,7 @@ export const Login = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            //console.log(data)
             localStorage.setItem("token", data.token)
             navigate("/admin")
         })
@@ -39,7 +39,7 @@ export const Login = () => {
     useEffect(() => {
         let token = localStorage.getItem("token")
         if(token != null) {
-            console.log('Encontro el token')
+            //console.log('Encontro el token')
             fetch(process.env.REACT_APP_URL_API+"/isuserauth", {
                 headers: {'x-access-token': token},
             })
@@ -51,7 +51,7 @@ export const Login = () => {
                 setIsLogin(data.isLogin)
             })
         }
-        console.log('No encontro el token')
+        //console.log('No encontro el token')
     }, [])
 
     return (
