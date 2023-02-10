@@ -1,5 +1,5 @@
 import React from 'react'
-import {Fade} from './pruebasTransitions/Fade';
+//import {Fade} from './pruebasTransitions/Fade';
 
 export const BodyDashboard = () => {
     return (

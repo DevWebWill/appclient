@@ -59,7 +59,7 @@ export const Login = () => {
             {/* {isLogin && (
                 <Navigate to="/admin" replace={true} />
             )}  */}
-            <div className="lg:px-40 px-2 py-12 h-full">
+            <div className="lg:px-40 px-2 py-12 h-full bg-cyan-200">
                 <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                     {/* <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                         <img
@@ -68,7 +68,10 @@ export const Login = () => {
                             alt="Prueba"
                         />
                     </div> */}
-                    <div className="md:w-8/12 lg:w-6/12 lg:ml-20">
+                    <div className="md:w-8/12 lg:w-6/12 rounded shadow p-4 bg-white">
+                        <div className='text-center p-4 text-2xl'>
+                            Login
+                        </div>
                         <form onSubmit={event => handleLogin(event)}>
                             <div className="mb-6">
                                 <input
