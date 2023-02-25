@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Link, redirect } from 'react-router-dom'
 import CheckBox from '../components/checkbox/CheckBox'
 
-export const Register = () => {
+export const RegisterPage = () => {
 
     const [checked, setChecked] = useState(false)
 
@@ -39,7 +39,7 @@ export const Register = () => {
 
     return (
         <section className="h-screen">
-            <div className="lg:px-40 px-2 py-12 h-full bg-cyan-200">
+            <div className="lg:px-40 px-2 py-12 h-full bg-gradient-to-br from-black  to-purple-900">
                 <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                     {/* <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                         <img

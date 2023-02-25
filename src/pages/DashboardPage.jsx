@@ -1,7 +1,7 @@
 import React from 'react'
 //import {Fade} from './pruebasTransitions/Fade';
 
-export const BodyDashboard = () => {
+export const DashboardPage = () => {
     return (
         <div>
             {/* <Fade></Fade> */}

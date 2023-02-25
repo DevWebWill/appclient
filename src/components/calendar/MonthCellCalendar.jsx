@@ -2,11 +2,16 @@
 export const MonthCellCalendar = ({listTasks, DAYS_OF_THE_WEEK, days, startDay, year, month, today, selectedDate, setDate, setSelectedDate, menuContext, setMenuContext, setPoints, triggerCell, deleteTask, tamVentana}) => {
 
     function findTask(d) {
-        let tasks = listTasks.tasks.filter((task) => {
-            let taskTemp = new Date(task.date)
-            return  taskTemp.getDate() === d && taskTemp.getMonth() === month && taskTemp.getFullYear() === year
-        })
-        return tasks
+        if(listTasks.tasks !== undefined) {
+            let tasks = listTasks.tasks.filter((task) => {
+                let taskTemp = new Date(task.date)
+                return  taskTemp.getDate() === d && taskTemp.getMonth() === month && taskTemp.getFullYear() === year
+            })
+            return tasks
+        } else {
+            return []
+        }
+        
     }
 
     return (
@@ -77,6 +82,7 @@ export const MonthCellCalendar = ({listTasks, DAYS_OF_THE_WEEK, days, startDay, 
                         >
                             {d > 0 ? d : ''}
                             {   
+
                                 findTask(d).map((task, index2) => {
                                     return <div 
                                             key={index2} 

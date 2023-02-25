@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import CheckBox from '../components/checkbox/CheckBox'
 
-export const Login = () => {
-    const navigate = useNavigate();
+export const LoginPage = () => {
+    //const navigate = useNavigate();
 
     const [checked, setChecked] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
@@ -32,13 +32,16 @@ export const Login = () => {
         .then(data => {
             //console.log(data)
             localStorage.setItem("token", data.token)
-            navigate("/admin")
+            //navigate("/admin")
+            //return <Navigate to="/admin" replace />
+            setIsLogin(true)
         })
     }
 
     useEffect(() => {
         let token = localStorage.getItem("token")
-        if(token != null) {
+        console.log(token)
+        if(token !== undefined && token !== null) {
             //console.log('Encontro el token')
             fetch(process.env.REACT_APP_URL_API+"/isuserauth", {
                 headers: {'x-access-token': token},
@@ -46,20 +49,26 @@ export const Login = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.isLogin) {
-                    navigate("/admin")
+                    console.log('1')
+                    //navigate("/admin")
+                    //return <Navigate to="/admin" replace />
+                    setIsLogin(true)
+                } else {
+                    console.log('2')
+                    localStorage.removeItem("token")
                 }
-                setIsLogin(data.isLogin)
+                //setIsLogin(data.isLogin)
             })
         }
         //console.log('No encontro el token')
-    }, [])
+    })
 
     return (
         <section className="h-screen">
-            {/* {isLogin && (
+            {isLogin && (
                 <Navigate to="/admin" replace={true} />
-            )}  */}
-            <div className="lg:px-40 px-2 py-12 h-full bg-cyan-200">
+            )} 
+            <div className="lg:px-40 px-2 py-12 h-full bg-gradient-to-br from-black  to-purple-900">
                 <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                     {/* <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                         <img
@@ -68,7 +77,7 @@ export const Login = () => {
                             alt="Prueba"
                         />
                     </div> */}
-                    <div className="md:w-8/12 lg:w-6/12 rounded shadow p-4 bg-white">
+                    <div className="md:w-8/12 lg:w-6/12 rounded shadow-2xl p-4 bg-white">
                         <div className='text-center p-4 text-2xl'>
                             Login
                         </div>

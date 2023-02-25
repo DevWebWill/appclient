@@ -4,17 +4,22 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import './index.css';
 import App from './App';
 import ErrorPage from './pages/ErrorPage';
-import Dashboard from './pages/Dashboard';
-import { Login } from './pages/Login';
-import { Register } from './pages/Register';
-import { BodyDashboard } from './components/BodyDashboard';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { Dashboard } from './pages/Dashboard';
 import { CalendarPage } from './pages/CalendarPage';
+import { ContactPage } from './pages/ContactPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { ComponentsPage } from './pages/ComponentsPage';
+import { CheckboxPage } from './pages/CheckboxPage';
+import { TablePage } from './pages/TablePage';
+import { SelectPage } from './pages/SelectPage';
 
 export async function loader() {
     let token = localStorage.getItem("token")
-    if(token !== undefined && token != null) {
+    if(token !== undefined && token !== null) {
         //GET USER
-        const user = await fetch(process.env.REACT_APP_URL_API+"/user/getuser", {
+        const user = await fetch(process.env.REACT_APP_URL_API+"/users/getuser", {
             headers: {'x-access-token': token},
         })
         .then(res => res.json())
@@ -22,7 +27,8 @@ export async function loader() {
             if(data.isLogin) {
                 return data.user
             } else {
-                return <Navigate to="/login" replace />
+                localStorage.removeItem("token")
+                return null
             }
             
         }).catch(error => {
@@ -39,8 +45,6 @@ export async function loader() {
         }).catch(error => {
             console.error('Error al conectar con el servidor, ', error)
         })
-
-        //console.log(new Date(tasks[4].date))
         return {user, tasks}
     } else {
         console.log('No encontro el token')
@@ -58,7 +62,12 @@ const ProtectedRoute = ({ children }) =>  {
         headers: {'x-access-token': token},
     })
     .then(data => {
-        return data.isLogin === true ? true : false
+        if(data.isLogin) {
+            return true
+        } else {
+            return false
+        }
+        
     }).catch(error => {
         console.error('Error al conectar con el servidor, ', error)
     })
@@ -67,26 +76,7 @@ const ProtectedRoute = ({ children }) =>  {
         return <Navigate to="/login" replace />
     }  
     return children;
-};
-
-/* const RedirectIfLogin = ({ children }) =>  {
-    let token = localStorage.getItem("token")
-    if(token == null) {
-        return children;
-    }
-    let isLogin = fetch(process.env.REACT_APP_URL_API+"/isuserauth", {
-        headers: {'x-access-token': token},
-    })
-    .then(res => res.json())
-    .then(data => data.isLogin )
-    
-    if (isLogin) {
-        return <Navigate to="/admin" replace />;
-    }  
-    return children;
-}; */
-
-
+}
 
 const router = createBrowserRouter([
     {
@@ -96,12 +86,12 @@ const router = createBrowserRouter([
     },
     {
         path: "/login",
-        element: <Login />,
+        element: <LoginPage />,
         errorElement: <ErrorPage />,
     },
     {
         path: "/register",
-        element: <Register />,
+        element: <RegisterPage />,
         errorElement: <ErrorPage />,
     },
     {
@@ -110,10 +100,10 @@ const router = createBrowserRouter([
         loader: loader,
         errorElement: <ErrorPage />,
         children: [
-            { index: true, element: <BodyDashboard /> },
+            { index: true, element: <DashboardPage /> },
             {
                 path: "contactos",
-                element: <div>Contactos</div>,
+                element: <ContactPage></ContactPage>,
                 errorElement: <ErrorPage />
             },
             {
@@ -121,6 +111,29 @@ const router = createBrowserRouter([
                 element: <CalendarPage />,
                 loader: loader,
                 errorElement: <ErrorPage />
+            },
+            {
+                path: "componentes",
+                element: <ComponentsPage />,
+                errorElement: <ErrorPage />,
+                children: [
+                    { index: true, element: <ComponentsPage /> },
+                    {
+                        path: "selects",
+                        element: <SelectPage></SelectPage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "checkboxs",
+                        element: <CheckboxPage></CheckboxPage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "tables",
+                        element: <TablePage></TablePage>,
+                        errorElement: <ErrorPage />
+                    }
+                ]
             }
         ]
     },

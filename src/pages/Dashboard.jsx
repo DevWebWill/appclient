@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 
-export default function Dashboard() {
+export const Dashboard = () => {
     const navigate = useNavigate()
     const [sidebarOpen, setSidebarOpen] = useState(false)
     //const [user, setUser] = useState({})
