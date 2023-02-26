@@ -23,7 +23,7 @@ export const Sidebar = ({triggerSidebar, isSidebarOpen}) => {
             {state => (
                 <aside
                     ref={triggerSidebar}
-                    className={`absolute bg-gray-200 opacity-95 w-72 h-full backdrop-blur-3xl`}
+                    className={`absolute bg-gray-200 opacity-95 w-72 h-full backdrop-blur-3xl z-40`}
                     style={{
                         ...defaultStyle,
                         ...transitionStyles[state]
