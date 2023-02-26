@@ -88,7 +88,7 @@ const App = () => {
 
                 <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6 text-gray-100 mb-32 px-6 sm:px-0 md:px-4 lg:px-2 xl:px-8 2xl:px-16 pt-14'>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-1 py-4'>
-                        <div className='rounded-lg sm:absolute bg-purple-900 bg-opacity-50 h-full w-full left-11 sm:left-8 p-5 sm:p-3'>
+                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full left-11 sm:left-8 p-5 sm:p-3'>
                             <div className='mb-4'>
                                 <img src={desarrolloApi} alt='' />
                             </div>
@@ -99,7 +99,7 @@ const App = () => {
                         </div>
                     </div>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-10'>
-                        <div className='rounded-lg sm:absolute bg-purple-900 h-full w-full shadow-2xl border-0 p-5 sm:p-3'>
+                        <div className='rounded-lg sm:relative bg-purple-900 h-full w-full shadow-2xl border-0 p-5 sm:p-3'>
                             <div className='mb-4'>
                                 <img src={desarrolloApi} alt='' />
                             </div>
@@ -110,7 +110,7 @@ const App = () => {
                         </div>
                     </div>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-1 py-4'>
-                        <div className='rounded-lg sm:absolute bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-8 border-0 p-5 sm:p-3'>
+                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-8 border-0 p-5 sm:p-3'>
                             <div className='mb-4'>
                                 <img src={desarrolloApi} alt='' />
                             </div>
