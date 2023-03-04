@@ -1,4 +1,3 @@
-import React from 'react'
 import { Select } from '../components/select/Select'
 
 export const SelectPage = () => {
@@ -15,16 +14,16 @@ export const SelectPage = () => {
         { value: 2, text: 'Italia'}, 
         { value: 3, text: 'España'}
     ]
-    //const [selected1, setSelected1] = useState([])
+    const preSelected1 = [{ value: 1, text: 'Canadá'}, { value: 2, text: 'Italia'}]
 
     const options2 = [
         { value: 1, text: 'Canadá'}, 
         { value: 2, text: 'Italia'}, 
         { value: 3, text: 'España'}
     ]
-    //const [selected2, setSelected2] = useState([{ value: 1, text: 'Canadá'}])
+    const preSelected2 = [{ value: 1, text: 'Canadá'}]
 
-    function handleActionSelected(selected) {
+    function handleActionSelected(selected, field) {
         //console.log('Child did:', selected);
     }
 
@@ -36,11 +35,11 @@ export const SelectPage = () => {
             </div>
             <div className='border p-6 rounded shadow'>
                 <div className='text-center mb-6'><span className='font-semibold'>Slección múltiple:</span></div>
-                <Select handleActionSelected={handleActionSelected} options={options1} label={'Países:'} multiple={true} flexLabel={true}></Select>
+                <Select handleActionSelected={handleActionSelected} options={options1} label={'Países:'} multiple={true} flexLabel={true} preSelected={preSelected1}></Select>
             </div>
             <div className='border p-6 rounded shadow'>
                 <div className='text-center mb-6'><span className='font-semibold'>Preseleccionado:</span></div>
-                <Select handleActionSelected={handleActionSelected} options={options2} label={'Países:'}></Select>
+                <Select handleActionSelected={handleActionSelected} options={options2} label={'Países:'} preSelected={preSelected2}></Select>
             </div>
             <div className='border p-6 rounded shadow'>
                 <div className='text-center mb-6'><span className='font-semibold'>Deshabilitado:</span></div>

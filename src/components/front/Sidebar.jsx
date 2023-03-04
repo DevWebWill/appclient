@@ -34,17 +34,17 @@ export const Sidebar = ({triggerSidebar, isSidebarOpen}) => {
                         <ul className="flex flex-col">
                             <li className="mb-4">
                                 <Link to={"#"} className="text-gray-600 hover:text-gray-900">
-                                    Home
+                                    Inicio
                                 </Link>
                             </li>
                             <li className="mb-4">
                                 <Link to={"#"} className="text-gray-600 hover:text-gray-900">
-                                    About
+                                    Sobre
                                 </Link>
                             </li>
                             <li className="mb-4">
                                 <Link to={"#"} className="text-gray-600 hover:text-gray-900">
-                                    Contact
+                                    Contacto
                                 </Link>
                             </li>
                             <li className="mb-4">

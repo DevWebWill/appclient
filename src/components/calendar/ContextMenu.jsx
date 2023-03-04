@@ -44,7 +44,7 @@ export const ContextMenu = ({menuContext, setMenuContext, points, selectedDate, 
     }
 
     const validateData = () => {
-        console.log(datosTask)
+        //console.log(datosTask)
         if(datosTask.name !== '' && datosTask.date !== '') {
             return true
         } else {

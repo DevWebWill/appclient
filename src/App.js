@@ -1,13 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import desarrolloApi from '../src/assets/desarrollo-api.png';
+import desarrolloWeb from '../src/assets/desarrollo-web.png';
+import desarrolloApp from '../src/assets/desarrollo-app.png';
+import desarrolloSoftware from '../src/assets/desarrollo-software.png';
+import bg from '../src/assets/bg.jpg';
+
+/* import { setName } from './state/userSlice'
+import { useDispatch, useSelector } from 'react-redux'; */
+
 import { Hero } from './components/front/Hero';
 import { Sidebar } from './components/front/Sidebar';
-import desarrolloApi from '../src/assets/desarrollo-api.png';
-import bg from '../src/assets/bg.jpg';
+
 /* import DesarrolloWebProfesionalIcon from './assets/DesarrolloWebProfesionalIcon'; */
 /* import {Fade} from './components/pruebasTransitions/Fade' */
 
 const App = () => {
+    /* const user = useSelector((state) => state.user)
+    const dispatch = useDispatch() */
 
     const bgImageStyle = {
         backgroundImage: `url(${bg})`,
@@ -32,7 +43,7 @@ const App = () => {
     useEffect(() => {
         const clickHandler = ({ target }) => {
             if (!isSidebarOpen || (triggerSidebar !== null && triggerSidebar.current.contains(target)) || (triggerMenuIcon.current.contains(target)) ) { return; }
-            console.log('mierda')
+            //console.log('mierda')
             setIsSidebarOpen(false);
         };
         document.addEventListener('click', clickHandler);
@@ -55,17 +66,17 @@ const App = () => {
                 <ul className="flex text-gray-200">
                     <li className="mr-4">
                         <Link to={"#"} className="hover:text-violet-400">
-                            Home
+                            Inicio
                         </Link>
                     </li>
                     <li className="mr-4">
                         <Link to={"#"} className="hover:text-violet-400">
-                            About
+                            Sobre
                         </Link>
                     </li>
                     <li className="mr-4">
                         <Link to={"#"} className="hover:text-violet-400">
-                            Contact
+                            Contacto
                         </Link>
                     </li>
                     <li className="">
@@ -88,9 +99,9 @@ const App = () => {
 
                 <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-6 text-gray-100 mb-32 px-6 sm:px-0 md:px-4 lg:px-2 xl:px-8 2xl:px-16 pt-14'>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-1 py-4'>
-                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full left-11 sm:left-8 p-5 sm:p-3'>
-                            <div className='mb-4'>
-                                <img src={desarrolloApi} alt='' />
+                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full left-11 sm:left-8 p-5 sm:p-3 shadow-lg shadow-purple-800/30'>
+                            <div className='mb-4 p-4'>
+                                <img src={desarrolloApp} alt='' />
                             </div>
                             <div className='text-center text-gray-200'>
                                 <h3 className='text-2xl sm:text-xl font-bold mb-2 text-white'>Desarrollo de App Móviles</h3>
@@ -99,9 +110,9 @@ const App = () => {
                         </div>
                     </div>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-10'>
-                        <div className='rounded-lg sm:relative bg-purple-900 h-full w-full shadow-2xl border-0 p-5 sm:p-3'>
-                            <div className='mb-4'>
-                                <img src={desarrolloApi} alt='' />
+                        <div className='rounded-lg sm:relative bg-purple-900 h-full w-full border-0 p-5 sm:p-3 shadow-lg shadow-purple-800/40'>
+                            <div className='mb-4 p-8'>
+                                <img src={desarrolloWeb} alt='' />
                             </div>
                             <div className='text-center text-gray-200'>
                                 <h3 className='text-2xl sm:text-xl font-bold mb-2 text-white'>Desarrollo Web</h3>
@@ -110,9 +121,9 @@ const App = () => {
                         </div>
                     </div>
                     <div className='relative min-h-[52vh] sm:min-h-[42vh] 2xl:min-h-[45vh] rounded-lg z-1 py-4'>
-                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-8 border-0 p-5 sm:p-3'>
-                            <div className='mb-4'>
-                                <img src={desarrolloApi} alt='' />
+                        <div className='rounded-lg sm:relative bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-8 border-0 p-5 sm:p-3 shadow-lg shadow-purple-800/30'>
+                            <div className='mb-4 p-4'>
+                                <img src={desarrolloSoftware} alt='' />
                             </div>
                             <div className='text-center text-gray-200'>
                                 <h3 className='text-2xl sm:text-xl font-bold mb-2 text-white'>Solución de problemas</h3>
@@ -120,12 +131,12 @@ const App = () => {
                             </div>                                
                         </div>
                     </div>
-                    <div className='sm:col-span-3 lg:col-span-1 relative min-h-[52vh] sm:min-h-[30vh] 2xl:min-h-[45vh] rounded-lg z-1 sm:mx-8 lg:mx-0'>
-                        <div className='rounded-lg sm:relative sm:grid sm:grid-cols-2 lg:grid-cols-none flex flex-col justify-center items-center bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-0 lg:right-11 border-0 p-5 sm:p-3 lg:p-5 sm:mt-4'>
+                    <div className='sm:col-span-3 lg:col-span-1 relative  rounded-lg z-1 sm:mx-8 lg:mx-0 md:py-4'>
+                        <div className='rounded-lg sm:relative sm:grid sm:grid-cols-2 lg:grid-cols-none flex flex-col justify-center items-center bg-purple-900 bg-opacity-50 h-full w-full right-11 sm:right-0 lg:right-11 border-0 p-5 sm:p-3 md:p-3 sm:mt-4 md:mt-0 shadow-lg shadow-purple-800/30'>
                             <div className='static mb-4 sm:mb-0'>
-                                <img className='object-fit' src={desarrolloApi} alt='' />
+                                <img className='object-fit sm:h-64 lg:h-auto' src={desarrolloApi} alt='' />
                             </div>
-                            <div className='text-center text-gray-200 sm:px-2'>
+                            <div className='text-center text-gray-200 sm:px-2 md:px-0'>
                                 <h3 className='text-2xl sm:text-xl font-bold mb-2 text-white'>Desarrollo de APIs</h3>
                                 <span className='text-md text-gray-300'>Desarrollo de software como capa de comunicación enttre diferentes aplicaciones o sistemas.</span>
                             </div>                                
@@ -158,7 +169,19 @@ const App = () => {
 
                 <div className='grid grid-cols-2 relative h-60 rounded-lg opacity-60 text-gray-100 my-48 px-6 md:px-12 lg:px-10 xl:px-16 2xl:px-24'>
                     <div className='border'>
-                            
+                        {/* <div>
+                            <div>
+                                <button onClick={() => dispatch(setName('juan'))}>
+                                    Set Juan
+                                </button>
+                                <br></br>
+                                <button onClick={() => dispatch(setName('pepe'))}>
+                                    Set Pepe
+                                </button>
+                                <div>{user.name}</div>
+                                
+                            </div>
+                        </div> */}
                     </div>
                     <div className='border'>
                         

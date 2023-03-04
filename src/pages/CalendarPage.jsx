@@ -20,7 +20,7 @@ export const CalendarPage = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data.message)
+            //console.log(data.message)
             return data.data
         })
         
@@ -46,7 +46,7 @@ export const CalendarPage = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            //console.log(data)
         })
     }
 

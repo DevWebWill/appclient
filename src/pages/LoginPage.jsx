@@ -40,7 +40,7 @@ export const LoginPage = () => {
 
     useEffect(() => {
         let token = localStorage.getItem("token")
-        console.log(token)
+        //console.log(token)
         if(token !== undefined && token !== null) {
             //console.log('Encontro el token')
             fetch(process.env.REACT_APP_URL_API+"/isuserauth", {

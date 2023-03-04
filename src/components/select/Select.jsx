@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 
-export const Select = ({options = [], label = '', placeholder = 'Sleccionar', flexLabel = false, multiple = false, disabled = false, field = 'fieldSelect', handleActionSelected}) => {
+export const Select = ({options = [], label = '', placeholder = 'Sleccionar', flexLabel = false, multiple = false, disabled = false, field = 'fieldSelect', handleActionSelected, preSelected = []}) => {
  
     const [show, setShow] = useState(false)
     const displayOptions = useRef(null);
     const buttonSelect = useRef(null);
 
-    const [selected, setSelected] = useState([])
+    const [selected, setSelected] = useState(preSelected)
   
     // close on click outside
     useEffect(() => {
@@ -21,6 +21,7 @@ export const Select = ({options = [], label = '', placeholder = 'Sleccionar', fl
 
     useEffect(() => {
         handleActionSelected(selected, field)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected])
 
     const handleAction = async (element) => {
@@ -49,9 +50,7 @@ export const Select = ({options = [], label = '', placeholder = 'Sleccionar', fl
                     <input 
                         ref={buttonSelect}
                         onClick={() => { 
-                            console.log('opop')
                             if(!disabled) {
-                                console.log('kaka')
                                 setShow(!show) 
                             }
                         }}
@@ -65,7 +64,7 @@ export const Select = ({options = [], label = '', placeholder = 'Sleccionar', fl
                                     } else if((index+1) === selected.length) {
                                         return element.text
                                     } else {
-                                        return element.text + ','
+                                        return element.text
                                     }
                                     
                                 }) 

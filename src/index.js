@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './App';
+import store from './state/store'
+import { Provider } from 'react-redux'
+
 import ErrorPage from './pages/ErrorPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
@@ -14,6 +17,7 @@ import { ComponentsPage } from './pages/ComponentsPage';
 import { CheckboxPage } from './pages/CheckboxPage';
 import { TablePage } from './pages/TablePage';
 import { SelectPage } from './pages/SelectPage';
+import { ObservableEx } from './pages/ObservableEx';
 
 export async function loader() {
     let token = localStorage.getItem("token")
@@ -85,6 +89,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
     },
     {
+        path: "/observable",
+        element: <ObservableEx />,
+        errorElement: <ErrorPage />,
+    },
+    {
         path: "/login",
         element: <LoginPage />,
         errorElement: <ErrorPage />,
@@ -146,6 +155,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
     </React.StrictMode>
 );
