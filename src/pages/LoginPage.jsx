@@ -66,8 +66,7 @@ export const LoginPage = () => {
     const handleGoogleLogin = useGoogleLogin({
         onSuccess: codeResponse => {
             const access_token = codeResponse.access_token
-            console.log(access_token)
-            /* const token = { 
+            const token = { 
                 access_token: access_token 
             }
 
@@ -77,18 +76,6 @@ export const LoginPage = () => {
                     'Content-type': "application/json"
                 },
                 body: JSON.stringify(token)
-            })
-            .then(res => res.json())
-            .then(data => {
-                localStorage.setItem("token", data.token)
-                setIsLogin(true)
-                navigate("/login");
-            }) */
-
-            fetch(process.env.REACT_APP_URL_API+"/loginwithgoogle?access_token="+access_token, {
-                headers: {
-                    'Content-type': "application/json"
-                }
             })
             .then(res => res.json())
             .then(data => {
