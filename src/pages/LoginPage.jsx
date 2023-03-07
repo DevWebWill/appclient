@@ -160,11 +160,11 @@ export const LoginPage = () => {
                                 <p className="text-center font-semibold mx-4 mb-0">OR</p>
                             </div>
 
-                            <div className='flex justify-center gap-4'>
+                            <div className='grid grid-cols-1 md:grid-cols-3 justify-center gap-4'>
 
                                 {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
 
-                                <div className='h-10 w-[242px] px-2.5 mb-3'>
+                                <div className=''>
                                     <button 
                                         onClick={() => handleGoogleLogin()}
                                         className="h-10 w-full font-medium text-sm rounded flex justify-center items-center border border-gray-300 hover:bg-blue-50 hover:border-blue-100"
@@ -174,7 +174,7 @@ export const LoginPage = () => {
                                     </button>
                                 </div>
 
-                                <div className='h-10 w-[242px] px-2.5 mb-3'>
+                                <div className=''>
                                     <a
                                         className="h-10 font-medium text-sm rounded flex justify-center items-center border border-gray-300 hover:bg-blue-50 hover:border-blue-100"
                                         style={{color: '#3b5998'}}
@@ -190,7 +190,7 @@ export const LoginPage = () => {
                                     </a>
                                 </div>
 
-                                <div className='h-10 w-[242px] px-2.5 mb-3'>
+                                <div className=''>
                                     <a
                                         className="h-10 font-medium text-sm rounded flex justify-center items-center border border-gray-300 hover:bg-blue-50 hover:border-blue-100"
                                         style={{color: '#55acee'}}
@@ -205,6 +205,7 @@ export const LoginPage = () => {
                                         Twitter
                                     </a>
                                 </div>
+                                
                             </div>
 
                             
