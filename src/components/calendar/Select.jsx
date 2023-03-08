@@ -36,7 +36,7 @@ export const Select = ({selectedView, setSelectedView}) => {
                             options.map((element) => {
                                 return ( 
                                     selectedView === element ? '' :
-                                        <li onClick={() => {setSelectedView(element); setShow(false) }} key={element} className="group text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0" role="option">
+                                        <li onClick={() => {setSelectedView(element); setShow(false) }} key={element} className="group text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0">
                                             <div className="flex items-center">
                                                 {/* <img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="h-6 w-6 flex-shrink-0 rounded-full" /> */}
                                                 <span className="font-normal ml-3 block truncate">{element}</span>

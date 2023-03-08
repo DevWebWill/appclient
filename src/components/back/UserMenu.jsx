@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {Transition} from '../utils/Transition';
+import {Transition} from '../../utils/Transition';
 
-import UserAvatar from '../assets/user-36-08.jpg';
+import UserAvatar from '../../assets/user-36-08.jpg';
 
 function UserMenu({user, logout}) {
 

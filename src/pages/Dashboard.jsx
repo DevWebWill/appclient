@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import { Header } from "../components/back/Header";
+import Sidebar from "../components/back/Sidebar";
 
 
 export const Dashboard = () => {

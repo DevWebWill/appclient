@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import { Select } from '../Select';
+import { Select } from './Select';
 import { WeekCellCalendar } from './WeekCellCalendar';
-import { Modal } from '../Modal';
+import { Modal } from './Modal';
 import { MonthCellCalendar } from './MonthCellCalendar';
 import { ContextMenu } from './ContextMenu';
 
