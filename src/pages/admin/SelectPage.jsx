@@ -1,4 +1,4 @@
-import { Select } from '../components/select/Select'
+import { Select } from '../../components/select/Select'
 
 export const SelectPage = () => {
 

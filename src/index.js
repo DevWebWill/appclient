@@ -11,14 +11,14 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import ErrorPage from './pages/ErrorPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
-import { Dashboard } from './pages/Dashboard';
-import { CalendarPage } from './pages/CalendarPage';
-import { ContactPage } from './pages/ContactPage';
-import { DashboardPage } from './pages/DashboardPage';
-import { ComponentsPage } from './pages/ComponentsPage';
-import { CheckboxPage } from './pages/CheckboxPage';
-import { TablePage } from './pages/TablePage';
-import { SelectPage } from './pages/SelectPage';
+import { Dashboard } from './pages/admin/Dashboard';
+import { CalendarPage } from './pages/admin/CalendarPage';
+import { ContactPage } from './pages/admin/ContactPage';
+import { DashboardPage } from './pages/admin/DashboardPage';
+import { ComponentsPage } from './pages/admin/ComponentsPage';
+import { CheckboxPage } from './pages/admin/CheckboxPage';
+import { TablePage } from './pages/admin/TablePage';
+import { SelectPage } from './pages/admin/SelectPage';
 import { ObservableEx } from './pages/ObservableEx';
 
 export async function loader() {

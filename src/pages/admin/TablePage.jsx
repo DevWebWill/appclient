@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Table } from '../components/table/Table'
+import { Table } from '../../components/table/Table'
 
 export const TablePage = () => {
 

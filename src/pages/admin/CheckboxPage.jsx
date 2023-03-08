@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CheckBoxGroup from '../components/checkbox/CheckBoxGroup'
+import CheckBoxGroup from '../../components/checkbox/CheckBoxGroup'
 
 export const CheckboxPage = () => {
 

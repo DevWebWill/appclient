@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom';
-import { Calendar } from '../components/calendar/Calendar'
+import { Calendar } from '../../components/calendar/Calendar'
 
 export const CalendarPage = () => {
     const { user, tasks } = useLoaderData();
