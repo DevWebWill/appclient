@@ -1,51 +1,66 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { TimePicker } from '../timepicker/TimePicker'
+import { CalendarContext, CalendarDispatchContext } from './CalendarContext';
 
-export const ContextMenu = ({menuContext, setMenuContext, points, selectedDate, listTasks, menu_context, addTask}) => {
+export const MenuModal = ({ points, menu_context, task, setTask, addTaskBySocket }) => {
+
+    const state = useContext(CalendarContext)
+    const dispatch = useContext(CalendarDispatchContext);
+
     const dd = new Date()
     const [hourSelected, setHourSelected] = useState({
         hour: dd.getHours() < 10 ? (0+dd.getHours().toString()) : dd.getHours().toString(), 
         minute: dd.getMinutes() < 10 ? 0+dd.getMinutes().toString() : dd.getMinutes().toString()
     })
 
-    const [datosTask, setDatosTask] = useState({
+    /* const [datosTask, setDatosTask] = useState({
         name: '',
-        date: selectedDate.getFullYear()+'-'+(selectedDate.getMonth()+1)+'-'+selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":" + "00"
-    })
+        date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
+    }) */
 
-    useEffect(() => {
+    /* function handleSetHourSelected(hour) {
+        setHourSelected(hour)
         setDatosTask({
             ...datosTask,
-            date: selectedDate.getFullYear()+'-'+(selectedDate.getMonth()+1)+'-'+selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":" + "00"
+            date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
         })
-    }, [selectedDate, hourSelected])
+    } */
+
+
+    /* useEffect(() => {
+        setDatosTask({
+            ...datosTask,
+            date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
+        })
+        // eslint-disable-next-line
+    }, [state.selectedDate, hourSelected]) */
 
     const handleInputChange = (event) => {        
-        setDatosTask({
-            ...datosTask,
-            //date: completeDate,
-            [event.target.name] : event.target.value
+        setTask({
+            ...task,
+            [event.target.name] : event.target.value,
+            date: state.selectedDate.getFullYear()+'-'+((state.selectedDate.getMonth()+1) < 10 ? `0${state.selectedDate.getMonth()+1}` : `${state.selectedDate.getMonth()+1}`)+ '-' + (state.selectedDate.getDate() < 10 ? `0${state.selectedDate.getDate()}` : `${state.selectedDate.getDate()}`) + " " + (hourSelected.hour < 10 ? `${hourSelected.hour}` : `${hourSelected.hour}`) + ":" + (hourSelected.minute < 10 ? `${hourSelected.minute}` : `${hourSelected.minute}`) + ":00"
         })
     }
 
     const sendData = (event) => {
         event.preventDefault()
-        setDatosTask({
-            ...datosTask,
-        })
+        /* setTask({
+            ...task,
+        }) */
         
         //Validation
-        if(validateData(datosTask)) {
-            addTask(datosTask)
+        if(validateData(task)) {
+            addTaskBySocket(task)
         }
         
 
-        setMenuContext(false)
+        dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: false });
     }
 
     const validateData = () => {
-        //console.log(datosTask)
-        if(datosTask.name !== '' && datosTask.date !== '') {
+        console.log(task)
+        if(task.name !== '' && task.date !== '') {
             return true
         } else {
             return false
@@ -58,13 +73,13 @@ export const ContextMenu = ({menuContext, setMenuContext, points, selectedDate, 
     //console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds())
 
     return (
-        <div ref={menu_context} className={`absolute border shadow-md rounded-md w-60 bg-white z-50 ${menuContext ? '' : 'hidden'}`} style={{ top: `${points.layerY}px`, left: `${points.layerX}px` }}>
+        <div ref={menu_context} className={`absolute border shadow-md rounded-md w-60 bg-white z-50 ${state.menuModalOpen ? '' : 'hidden'}`} style={{ top: `${points.layerY}px`, left: `${points.layerX}px` }}>
             <div className='flex justify-end pt-2 pr-2'>
                 <button 
                     type="button" 
                     className='px-1 rounded border'
                     onClick={
-                        () => setMenuContext(false)
+                        () => dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: false })
                     }
                 >
                     <i className="icofont-close-line"></i>
@@ -77,7 +92,7 @@ export const ContextMenu = ({menuContext, setMenuContext, points, selectedDate, 
                     </label>
                     <input
                         onChange={handleInputChange}
-                        value={datosTask.name}
+                        value={task.name}
                         type="text"
                         name="name"
                         id="name"

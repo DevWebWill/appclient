@@ -20,6 +20,9 @@ import { CheckboxPage } from './pages/admin/CheckboxPage';
 import { TablePage } from './pages/admin/TablePage';
 import { SelectPage } from './pages/admin/SelectPage';
 import { ObservableEx } from './pages/ObservableEx';
+import { DragAndDropPage } from './pages/admin/DragAndDropPage';
+import { SorteablePage } from './pages/admin/SorteablePage';
+import { SocketPage } from './pages/admin/SocketPage';
 
 export async function loader() {
     let token = localStorage.getItem("token")
@@ -38,6 +41,7 @@ export async function loader() {
             }
             
         }).catch(error => {
+            localStorage.removeItem("token")
             console.error('Error al conectar con el servidor, ', error)
         })
 
@@ -142,6 +146,21 @@ const router = createBrowserRouter([
                     {
                         path: "tables",
                         element: <TablePage></TablePage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "drag-and-drop",
+                        element: <DragAndDropPage></DragAndDropPage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "sorteable",
+                        element: <SorteablePage></SorteablePage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "socket",
+                        element: <SocketPage></SocketPage>,
                         errorElement: <ErrorPage />
                     }
                 ]

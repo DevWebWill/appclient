@@ -26,8 +26,8 @@ export const Table = ({columns, path, children}) => {
         let token = localStorage.getItem("token")
         //let obj = Object.fromEntries(filters)
         let url = path + "?" + new URLSearchParams(filters)
-        console.log(filters)
-        console.log(url)
+        //console.log(filters)
+        //console.log(url)
         
         if(token !== undefined && token != null) {
             await fetch(url , {

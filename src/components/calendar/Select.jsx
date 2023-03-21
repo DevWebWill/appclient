@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
+import { CalendarContext, CalendarDispatchContext } from './CalendarContext'
 
-export const Select = ({selectedView, setSelectedView}) => {
+export const Select = () => {
+
+    const state = useContext(CalendarContext)
+    const dispatch = useContext(CalendarDispatchContext)
 
     const options = ['Semana', 'Mes', 'Año']
     const [show, setShow] = useState(false)
@@ -21,7 +25,7 @@ export const Select = ({selectedView, setSelectedView}) => {
                 >
                     <span className="flex items-center">
                         {/* <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="h-6 w-6 flex-shrink-0 rounded-full" /> */}
-                        <span className="ml-3 block truncate">{selectedView}</span>
+                        <span className="ml-3 block truncate">{ state.selectedView }</span>
                     </span>
                     <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                         <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -35,8 +39,14 @@ export const Select = ({selectedView, setSelectedView}) => {
                         {
                             options.map((element) => {
                                 return ( 
-                                    selectedView === element ? '' :
-                                        <li onClick={() => {setSelectedView(element); setShow(false) }} key={element} className="group text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0">
+                                    state.selectedView === element ? '' :
+                                        <li onClick={() => { 
+                                                dispatch({ type: 'SELECTED_VIEW', selectedView: element }); 
+                                                setShow(false) 
+                                            }} 
+                                            key={element} 
+                                            className="group text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-0"
+                                        >
                                             <div className="flex items-center">
                                                 {/* <img src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" className="h-6 w-6 flex-shrink-0 rounded-full" /> */}
                                                 <span className="font-normal ml-3 block truncate">{element}</span>
