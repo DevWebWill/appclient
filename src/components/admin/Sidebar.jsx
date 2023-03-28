@@ -172,6 +172,69 @@ export default function Sidebar({sidebarOpen, setSidebarOpen}) {
                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z" />
                                                             </svg>
                                                             <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                                                Herramientas
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex shrink-0 ml-2">
+                                                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-slate-400 ${open && 'rotate-180'}`} viewBox="0 0 12 12">
+                                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                                                    <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
+                                                        <li className="mb-1 last:mb-0">
+                                                            <NavLink
+                                                                end
+                                                                to={`/admin/generador`}
+                                                                className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
+                                                            >
+                                                                <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                                                    Generador de código
+                                                                </span>
+                                                            </NavLink>
+                                                        </li>
+                                                        <li className="mb-1 last:mb-0">
+                                                            <NavLink
+                                                                end
+                                                                to={`/admin/webcam`}
+                                                                className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
+                                                            >
+                                                                <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                                                    Webcam
+                                                                </span>
+                                                            </NavLink>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    }
+                                }
+                            </SidebarLinkGroup>
+                        </ul>
+
+                        <ul className="mt-3">
+                            <SidebarLinkGroup activecondition={pathname === '/' || pathname.includes('admin')}>
+                                {
+                                    (handleClick, open) => {
+                                        return (
+                                            <React.Fragment>
+                                                <a
+                                                    href="#0"
+                                                    className={`block text-slate-200 hover:text-white truncate transition duration-150 ${(pathname === '/' || pathname.includes('dashboard')) && 'hover:text-slate-200'}`}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        sidebarExpanded ? handleClick() : setSidebarExpanded(true);
+                                                    }}
+                                                >
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z" />
+                                                            </svg>
+                                                            <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                                                 Componentes
                                                             </span>
                                                         </div>
@@ -192,6 +255,17 @@ export default function Sidebar({sidebarOpen, setSidebarOpen}) {
                                                             >
                                                                 <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                                                     Select
+                                                                </span>
+                                                            </NavLink>
+                                                        </li>
+                                                        <li className="mb-1 last:mb-0">
+                                                            <NavLink
+                                                                end
+                                                                to={`componentes/datepicker`}
+                                                                className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
+                                                            >
+                                                                <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
+                                                                    DatePicker
                                                                 </span>
                                                             </NavLink>
                                                         </li>
@@ -248,7 +322,7 @@ export default function Sidebar({sidebarOpen, setSidebarOpen}) {
                                                                 className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
                                                             >
                                                                 <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                                                    Socket
+                                                                    Chat 
                                                                 </span>
                                                             </NavLink>
                                                         </li>

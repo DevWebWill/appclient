@@ -23,6 +23,9 @@ import { ObservableEx } from './pages/ObservableEx';
 import { DragAndDropPage } from './pages/admin/DragAndDropPage';
 import { SorteablePage } from './pages/admin/SorteablePage';
 import { SocketPage } from './pages/admin/SocketPage';
+import { GeneratorPage } from './pages/admin/GeneratorPage';
+import { WebcamPage } from './pages/admin/WebcamPage';
+import { DatepickerPage } from './pages/admin/DatepickerPage';
 
 export async function loader() {
     let token = localStorage.getItem("token")
@@ -128,6 +131,16 @@ const router = createBrowserRouter([
                 errorElement: <ErrorPage />
             },
             {
+                path: "generador",
+                element: <GeneratorPage />,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "webcam",
+                element: <WebcamPage />,
+                errorElement: <ErrorPage />
+            },
+            {
                 path: "componentes",
                 element: <ComponentsPage />,
                 errorElement: <ErrorPage />,
@@ -136,6 +149,11 @@ const router = createBrowserRouter([
                     {
                         path: "selects",
                         element: <SelectPage></SelectPage>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "datepicker",
+                        element: <DatepickerPage></DatepickerPage>,
                         errorElement: <ErrorPage />
                     },
                     {
@@ -161,6 +179,7 @@ const router = createBrowserRouter([
                     {
                         path: "socket",
                         element: <SocketPage></SocketPage>,
+                        loader: loader,
                         errorElement: <ErrorPage />
                     }
                 ]

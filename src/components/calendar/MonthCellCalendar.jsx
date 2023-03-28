@@ -98,7 +98,11 @@ export const MonthCellCalendar = ({ listTasks, DAYS_OF_THE_WEEK, days, setPoints
                                     selectedDate: newDate,
                                     startDay: newDate
                                 })
-                                dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: true });
+                                dispatch({ 
+                                    type: 'MENU_MODAL_OPEN', 
+                                    menuModalOpen: true,
+                                    initHourOfTask: null
+                                });
                                 
                                 if(tamVentana() !== undefined) {
                                     if((e.pageX + 240) > tamVentana()[0]) {

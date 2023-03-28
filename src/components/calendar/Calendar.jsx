@@ -36,11 +36,14 @@ export const Calendar = ({ listTasks, setListTask, addTask, deleteTask, moveTask
         miniStartDay: new Date(dateInit.getFullYear(), dateInit.getMonth(), 1).getDay(),
 
         menuModalOpen: false,
+        initHourOfTask: null,
+
         alertModalOpen: false,
 
         selectedView: 'Mes',
 
-        dropdownOpenRightForm: false
+        openRightForm: false,
+        idTaskToEdit: null
     });
 
     const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -418,7 +421,7 @@ export const Calendar = ({ listTasks, setListTask, addTask, deleteTask, moveTask
                     } */}
                 </div>
 
-                <SidebarRightForm />
+                <SidebarRightForm listTasks={listTasks}/>
             </CalendarDispatchContext.Provider>
         </CalendarContext.Provider>
     )

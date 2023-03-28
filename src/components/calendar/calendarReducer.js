@@ -32,9 +32,11 @@ export function calendarReducer(state, action) {
             }
 
         case MENU_MODAL_OPEN:
+            console.log('mierda')
             return {
                 ...state,
-                menuModalOpen: action.menuModalOpen
+                menuModalOpen: action.menuModalOpen,
+                initHourOfTask: action.initHourOfTask
             }
 
         case OPEN_ALERT_BEFORE_DELETE:
@@ -52,7 +54,8 @@ export function calendarReducer(state, action) {
         case OPEN_RIGHT_FORM:
             return {
                 ...state,
-                dropdownOpenRightForm: action.dropdownOpenRightForm
+                openRightForm: action.openRightForm,
+                idTaskToEdit: action.idTaskToEdit
             }
     
         default:

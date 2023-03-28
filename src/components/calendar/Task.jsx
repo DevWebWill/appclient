@@ -15,7 +15,7 @@ export const Task = ({ deleteTaskBySocket, task, setIsDragging}) => {
             onClick={ (e) => {
                 e.stopPropagation()
                 dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: false });
-                dispatch({ type: 'OPEN_RIGHT_FORM', dropdownOpenRightForm: true});
+                dispatch({ type: 'OPEN_RIGHT_FORM', openRightForm: true, idTaskToEdit: task._id});
             }}
             draggable="true" onDragStart={handleDragStart} onDragEnd={handleDragEnd}
         >
@@ -34,7 +34,11 @@ export const Task = ({ deleteTaskBySocket, task, setIsDragging}) => {
             <div>
                 <span onClick={ (e) => {
                     e.stopPropagation()
-                    dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: false });
+                    dispatch({ 
+                        type: 'MENU_MODAL_OPEN', 
+                        menuModalOpen: false,
+                        initHourOfTask: null
+                    });
                     deleteTaskBySocket(task._id)
                 }}>
                     <i className="icofont-close-line"></i>

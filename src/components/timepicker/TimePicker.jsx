@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './TimePicker.css'
 
 export const TimePicker = ({hourSelected, setHourSelected}) => {
+    console.log('Pingaaaa: ', hourSelected)
 
     const [openTimeSelector, setOpenTimeSelector] = useState(false)
     const [viewHour, setViewHour] = useState(true)

@@ -122,8 +122,8 @@ export const WeekCellCalendar = ({ listTasks, DAYS_OF_THE_WEEK, setPoints, delet
                                                 selectedDate: newDate,
                                                 startDay: newDate
                                             })
-                                            dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: true });
-
+                                            dispatch({ type: 'MENU_MODAL_OPEN', menuModalOpen: true, initHourOfTask: null });
+                                            console.log('OOKOK')
                                             /*if(tamVentana() !== undefined) {
                                                 console.log(e.nativeEvent.layerX, e.nativeEvent.layerY)
                                                 if((e.pageX + 240) > tamVentana()[0]) {
@@ -168,7 +168,42 @@ export const WeekCellCalendar = ({ listTasks, DAYS_OF_THE_WEEK, setPoints, delet
                                                     }
                                                 }}
                                                 key={index3} 
-                                                className='text-xs h-24 relative bg-transparent hover:bg-blue-100 hover:bg-opacity-80 hover:z-40 px-1 py-0.5'>
+                                                className='text-xs h-24 relative bg-transparent hover:bg-blue-100 hover:bg-opacity-80 hover:z-40 px-1 py-0.5'
+                                            >
+                                                <span 
+                                                    onClick={(e) => {
+                                                        e.preventDefault()
+                                                        dispatch({ 
+                                                            type: 'MENU_MODAL_OPEN', 
+                                                            menuModalOpen: true,
+                                                            initHourOfTask: `${hour-1 < 10 ? `0${hour-1}` : hour-1}:30`
+                                                        });
+                                                        if(tamVentana() !== undefined) {
+                                                            if((e.pageX + 240) > tamVentana()[0]) {
+                                                                setPoints({
+                                                                    layerX: e.pageX-480,
+                                                                    layerY: e.pageY
+                                                                })
+                                                            } else {
+                                                                setPoints({
+                                                                    layerX: e.pageX-240,
+                                                                    layerY: e.pageY
+                                                                })
+                                                            }
+                                                        }
+                                                        e.stopPropagation()
+                                                    }}
+                                                    className='w-2/3 h-0 z-50 m-auto absolute left-0 right-0 top-0 bottom-0 border-b border-red-500 opacity-0 hover:opacity-100 p-0'
+                                                >
+                                                    <span className='bg-red-400 rounded-b px-1 m-0 left-0'>{`${hour-1 < 10 ? `0${hour-1}` : hour-1}:30`}</span>
+                                                </span>
+
+                                                <div className='w-full h-full z-10 flex items-center absolute top-0 left-0'>
+                                                    <span className='w-full absolute border-b border-dotted border-d border-0.5 border-opacity-10'>
+                                                        
+                                                    </span>
+                                                </div>
+                                                
                                                 {
                                                     findTask(state.date.getDate()-(state.date.getDay()-(index+1))).map((task, index2) => {
                                                         if(new Date(task.date).getHours() === 0 && parseInt(hour) === 1) {
@@ -181,6 +216,20 @@ export const WeekCellCalendar = ({ listTasks, DAYS_OF_THE_WEEK, setPoints, delet
                                                         
                                                     })
                                                 }
+
+                                                
+                                                {/* <div className='w-full h-full z-40 hidden hover:flex items-center justify-center absolute top-0 left-0'>
+                                                    <span className='w-1/2 absolute border-y border-blue-500'>
+                                                        
+                                                    </span>
+                                                </div>
+
+                                                <div className='w-full h-1/2 z-40 hidden group-hover:flex items-center justify-center absolute top-0 left-0'>
+                                                    <span className='w-1/2 absolute border-y border-red-500'>
+                                                        
+                                                    </span>
+                                                </div> */}
+
                                             </div>
                                         })
                                     }

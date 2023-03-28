@@ -1,16 +1,16 @@
 import React from 'react';
 
-const InputSocket = ({ setMessage, sendMessage, message }) => (
-    <form className="form">
+const InputSocket = ({ setMessage, sendMessage, message, toRoom }) => (
+    <form className="form flex justify-between h-full">
         <input
-            className="border mr-2"
+            className="border-t w-full px-2 ring-0 focus:ring-0 focus:outline-none"
             type="text"
-            placeholder="Type a message..."
+            placeholder="¿En qué podemos ayudarte?"
             value={message}
             onChange={({ target: { value } }) => setMessage(value)}
-            onKeyDown={event => event.key === 'Enter' ? sendMessage(event) : null}
+            onKeyDown={event => event.key === 'Enter' ? sendMessage(event, toRoom) : null}
         />
-        <button className="border p-1" onClick={e => sendMessage(e)}>Send</button>
+        <button className="px-2 text-white bg-green-500" onClick={event => sendMessage(event, toRoom)}>Enviar</button>
     </form>
 )
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TimePicker } from '../timepicker/TimePicker'
 import { CalendarContext, CalendarDispatchContext } from './CalendarContext';
 
@@ -7,33 +7,27 @@ export const MenuModal = ({ points, menu_context, task, setTask, addTaskBySocket
     const state = useContext(CalendarContext)
     const dispatch = useContext(CalendarDispatchContext);
 
-    const dd = new Date()
+    let currentTimeInit = new Date()
     const [hourSelected, setHourSelected] = useState({
-        hour: dd.getHours() < 10 ? (0+dd.getHours().toString()) : dd.getHours().toString(), 
-        minute: dd.getMinutes() < 10 ? 0+dd.getMinutes().toString() : dd.getMinutes().toString()
+        hour: currentTimeInit.getHours() < 10 ? (0+currentTimeInit.getHours().toString()) : currentTimeInit.getHours().toString(), 
+        minute: currentTimeInit.getMinutes() < 10 ? 0+currentTimeInit.getMinutes().toString() : currentTimeInit.getMinutes().toString()
     })
 
-    /* const [datosTask, setDatosTask] = useState({
-        name: '',
-        date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
-    }) */
-
-    /* function handleSetHourSelected(hour) {
-        setHourSelected(hour)
-        setDatosTask({
-            ...datosTask,
-            date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
-        })
-    } */
-
-
-    /* useEffect(() => {
-        setDatosTask({
-            ...datosTask,
-            date: state.selectedDate.getFullYear()+'-'+(state.selectedDate.getMonth()+1)+'-'+state.selectedDate.getDate() + " " + hourSelected.hour + ":" + hourSelected.minute + ":00"
-        })
-        // eslint-disable-next-line
-    }, [state.selectedDate, hourSelected]) */
+    useEffect(() => {
+        let newHour = state.initHourOfTask !== undefined && state.initHourOfTask !== null ? state.initHourOfTask.split(':') : null;
+        if(newHour !== null) {
+            let hour = newHour[0];
+            let minute = newHour[1];
+            setHourSelected({ hour: hour, minute: minute})
+        } else {
+            let currentTime = new Date()
+            setHourSelected({
+                hour: currentTime.getHours() < 10 ? (0+currentTime.getHours().toString()) : currentTime.getHours().toString(), 
+                minute: currentTime.getMinutes() < 10 ? 0+currentTime.getMinutes().toString() : currentTime.getMinutes().toString()
+            })
+        }
+    }, [state.initHourOfTask])
+    
 
     const handleInputChange = (event) => {        
         setTask({
@@ -44,14 +38,10 @@ export const MenuModal = ({ points, menu_context, task, setTask, addTaskBySocket
     }
 
     const sendData = (event) => {
-        event.preventDefault()
-        /* setTask({
-            ...task,
-        }) */
-        
+        event.preventDefault();
         //Validation
         if(validateData(task)) {
-            addTaskBySocket(task)
+            addTaskBySocket(task);
         }
         
 
@@ -59,11 +49,11 @@ export const MenuModal = ({ points, menu_context, task, setTask, addTaskBySocket
     }
 
     const validateData = () => {
-        console.log(task)
+        console.log(task);
         if(task.name !== '' && task.date !== '') {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 
