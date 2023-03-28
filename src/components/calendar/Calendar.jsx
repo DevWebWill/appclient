@@ -60,12 +60,12 @@ export const Calendar = ({ listTasks, setListTask, addTask, deleteTask, moveTask
 
     //Socket
     useEffect(() => {
-        socket = io(ENDPOINT)
+        socket = io()
         return () => {
             socket.emit('disconnectt')
             socket.off()
         }
-    }, [ENDPOINT])
+    }, [])
 
     useEffect(() => {
         socket.on('createdTask', (task) => {
