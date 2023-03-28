@@ -14,7 +14,7 @@ import { SidebarRightForm } from './SidebarRightForm';
 let socket;
 
 export const Calendar = ({ listTasks, setListTask, addTask, deleteTask, moveTask }) => {
-    const ENDPOINT = process.env.REACT_APP_URL_API
+    const ENDPOINT = process.env.URL_SOCKET
     const [task, setTask] = useState({name: '', date: ''})
     /**
      * Inicialización Estado con useReducer
